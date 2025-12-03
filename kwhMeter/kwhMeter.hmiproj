@@ -116,6 +116,7 @@
     <Folder Include="KeyboardLayouts\" />
     <Folder Include="Localization" />
     <Folder Include="Pages\" />
+    <Folder Include="Pages\detail" />
     <Folder Include="Server\ADS\" />
     <Folder Include="Server\TcHmiLua\" />
     <Folder Include="Server\TcHmiSqliteLogger\" />
@@ -134,6 +135,9 @@
     <Folder Include="Properties" />
     <Content Include=".eslintrc.json">
       <Visible>false</Visible>
+    </Content>
+    <Content Include="Pages\detail\Detail1.content">
+      <SubType>Content</SubType>
     </Content>
     <Content Include="Pages\Events.content">
       <SubType>Content</SubType>

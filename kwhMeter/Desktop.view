@@ -6,29 +6,37 @@
 "divider",
 "divider-left"
 ]
-</script><script data-tchmi-target-attribute="data-tchmi-navigation-structure" type="application/json">[
-{
- "name": "%l%L_StartPage%/l%",
- "content": "Pages/StartPage.content",
- "icon_a": "%tr%TR_Icon_StartPage_active%/tr%",
- "icon_n": "%tr%TR_Icon_StartPage_normal%/tr%",
- "icon_p": "%tr%TR_Icon_StartPage_pressed%/tr%"
-},
-{
- "name": "%l%L_Events%/l%",
- "content": "Pages/Events.content",
- "icon_a": "%tr%TR_Icon_Events_active%/tr%",
- "icon_n": "%tr%TR_Icon_Events_normal%/tr%",
- "icon_p": "%tr%TR_Icon_Events_pressed%/tr%"
-},
-{
- "name": "%l%L_Settings%/l%",
- "content": "Pages/Settings.content",
- "icon_a": "%tr%TR_Icon_Settings_active%/tr%",
- "icon_n": "%tr%TR_Icon_Settings_normal%/tr%",
- "icon_p": "%tr%TR_Icon_Settings_pressed%/tr%"
-}
-]</script></div><div id="Header_Top" data-tchmi-type="TcHmi.Controls.BaseTemplate.TcHmiHeader" data-tchmi-height="80" data-tchmi-left="%ctrl%Navigation_Left::Width%/ctrl%" data-tchmi-top="0" data-tchmi-right="0">
+</script><script data-tchmi-target-attribute="data-tchmi-navigation-structure" type="application/json">
+[
+  {
+    "name": "Dashboard",
+    "content": "Pages/StartPage.content",
+    "icon_a": "%tr%TR_Icon_StartPage_active%/tr%",
+    "icon_n": "%tr%TR_Icon_StartPage_normal%/tr%",
+    "icon_p": "%tr%TR_Icon_StartPage_pressed%/tr%",
+    "subItem": [
+      {
+        "name": "Detail 1",
+        "content": "Pages/detail/Detail1.content"
+      }
+    ]
+  },
+  {
+    "name": "%l%L_Events%/l%",
+    "content": "Pages/Events.content",
+    "icon_a": "%tr%TR_Icon_Events_active%/tr%",
+    "icon_n": "%tr%TR_Icon_Events_normal%/tr%",
+    "icon_p": "%tr%TR_Icon_Events_pressed%/tr%"
+  },
+  {
+    "name": "%l%L_Settings%/l%",
+    "content": "Pages/Settings.content",
+    "icon_a": "%tr%TR_Icon_Settings_active%/tr%",
+    "icon_n": "%tr%TR_Icon_Settings_normal%/tr%",
+    "icon_p": "%tr%TR_Icon_Settings_pressed%/tr%"
+  }
+]
+</script></div><div id="Header_Top" data-tchmi-type="TcHmi.Controls.BaseTemplate.TcHmiHeader" data-tchmi-height="80" data-tchmi-left="%ctrl%Navigation_Left::Width%/ctrl%" data-tchmi-top="0" data-tchmi-right="0">
 <script data-tchmi-target-attribute="data-tchmi-class-names" type="application/json">[
 "divider",
 "divider-top"
@@ -197,7 +205,20 @@
                 }
             ]</script></div><div id="Region_Center" data-tchmi-type="TcHmi.Controls.System.TcHmiRegion" data-tchmi-left="%ctrl%Navigation_Left::Width%/ctrl%" data-tchmi-top="%ctrl%Header_Top::Height%/ctrl%" data-tchmi-scrolling="Yes" data-tchmi-bottom="0" data-tchmi-right="0">
 
-<script data-tchmi-target-attribute="data-tchmi-class-names" type="application/json"></script></div><script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">[ 
+<script data-tchmi-target-attribute="data-tchmi-class-names" type="application/json"></script>
+<script data-tchmi-target-attribute="data-tchmi-border-radius" type="application/json">
+{
+  "topLeft": 50.0,
+  "topRight": 50.0,
+  "bottomLeft": 50.0,
+  "bottomRight": 50.0,
+  "topLeftUnit": "px",
+  "topRightUnit": "px",
+  "bottomLeftUnit": "px",
+  "bottomRightUnit": "px"
+}
+</script>
+</div><script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">[ 
                 {   
                     "event": "%ctrl%Desktop::RenderedWidth%/ctrl%", 
                     "actions": [ 

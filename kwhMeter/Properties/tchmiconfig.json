@@ -55,7 +55,7 @@
   "userControls": [],
   "content": [
     {
-      "url": "Pages/StartPage.content",
+      "url": "Pages/detail/Detail1.content",
       "preload": false,
       "keepAlive": false,
       "loadSync": false,
@@ -70,6 +70,13 @@
     },
     {
       "url": "Pages/Settings.content",
+      "preload": false,
+      "keepAlive": false,
+      "loadSync": false,
+      "preloadBindings": false
+    },
+    {
+      "url": "Pages/StartPage.content",
       "preload": false,
       "keepAlive": false,
       "loadSync": false,
@@ -221,6 +228,16 @@
         "values": {
           "Base": "Themes/Base/Images/Settings/settings_active.svg",
           "Base-Dark": "Themes/Base-Dark/Images/Settings/settings_active.svg"
+        }
+      },
+      "text_secondary": {
+        "type": "tchmi:framework#/definitions/Color",
+        "description": "",
+        "values": {
+          "Base-Dark": {
+            "color": "rgba(197, 196, 196, 1)"
+          },
+          "Base": null
         }
       }
     }
