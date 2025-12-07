@@ -27,7 +27,187 @@
     "DEFAULTTIMEFORMATLOCALE": "client",
     "DEFAULTTIMEZONE": "client",
     "DEFAULTUSERGROUP": "__SystemUsers",
-    "DEFINITIONS": {},
+    "DEFINITIONS": {
+        "PLC1.ARRAY_0..0_OF-ARRAY_0..23_OF-ST_ChartPoint": {
+            "items": {
+                "$ref": "#/definitions/PLC1.ARRAY_0..23_OF-ST_ChartPoint"
+            },
+            "maxItems": 1,
+            "minItems": 1,
+            "type": "array"
+        },
+        "PLC1.ARRAY_0..23_OF-REAL": {
+            "items": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "maxItems": 24,
+            "minItems": 24,
+            "type": "array"
+        },
+        "PLC1.ARRAY_0..23_OF-ST_ChartPoint": {
+            "items": {
+                "$ref": "#/definitions/PLC1.ST_ChartPoint"
+            },
+            "maxItems": 24,
+            "minItems": 24,
+            "type": "array"
+        },
+        "PLC1.ARRAY_1..5_OF-ST_KwhMeterRealtime": {
+            "items": {
+                "$ref": "#/definitions/PLC1.ST_KwhMeterRealtime"
+            },
+            "maxItems": 5,
+            "minItems": 5,
+            "startOffset": 1,
+            "type": "array"
+        },
+        "PLC1.ARRAY_1..5_OF-ST_TodayTrend": {
+            "items": {
+                "$ref": "#/definitions/PLC1.ST_TodayTrend"
+            },
+            "maxItems": 5,
+            "minItems": 5,
+            "startOffset": 1,
+            "type": "array"
+        },
+        "PLC1.ST_ChartPoint": {
+            "properties": {
+                "x": {
+                    "allOf": [
+                        {
+                            "$ref": "tchmi:general#/definitions/REAL"
+                        },
+                        {
+                            "comment": "hour value",
+                            "propertyOrder": 1
+                        }
+                    ]
+                },
+                "y": {
+                    "allOf": [
+                        {
+                            "$ref": "tchmi:general#/definitions/REAL"
+                        },
+                        {
+                            "comment": "actual power value",
+                            "propertyOrder": 2
+                        }
+                    ]
+                }
+            },
+            "type": "object"
+        },
+        "PLC1.ST_KwhMeterRealtime": {
+            "properties": {
+                "ActivePower": {
+                    "allOf": [
+                        {
+                            "$ref": "tchmi:general#/definitions/REAL"
+                        },
+                        {
+                            "comment": "kW",
+                            "propertyOrder": 5
+                        }
+                    ]
+                },
+                "Current": {
+                    "allOf": [
+                        {
+                            "$ref": "tchmi:general#/definitions/REAL"
+                        },
+                        {
+                            "comment": "A",
+                            "propertyOrder": 3
+                        }
+                    ]
+                },
+                "DeviceId": {
+                    "allOf": [
+                        {
+                            "comment": "Example: '10C', '10D'",
+                            "maxLength": 10,
+                            "propertyOrder": 1
+                        },
+                        {
+                            "$ref": "tchmi:general#/definitions/String"
+                        }
+                    ]
+                },
+                "Frequency": {
+                    "allOf": [
+                        {
+                            "$ref": "tchmi:general#/definitions/REAL"
+                        },
+                        {
+                            "comment": "Hz",
+                            "propertyOrder": 4
+                        }
+                    ]
+                },
+                "Timestamp": {
+                    "allOf": [
+                        {
+                            "$ref": "tchmi:general#/definitions/DATE_AND_TIME"
+                        },
+                        {
+                            "comment": "PLC or Node-RED timestamp",
+                            "propertyOrder": 7
+                        }
+                    ]
+                },
+                "TotalEnergy": {
+                    "allOf": [
+                        {
+                            "$ref": "tchmi:general#/definitions/LREAL"
+                        },
+                        {
+                            "comment": "kWh - cumulative",
+                            "propertyOrder": 6
+                        }
+                    ]
+                },
+                "Valid": {
+                    "allOf": [
+                        {
+                            "$ref": "tchmi:general#/definitions/BOOL"
+                        },
+                        {
+                            "comment": "Set TRUE by Node-RED after writing all fields",
+                            "propertyOrder": 8
+                        }
+                    ]
+                },
+                "Voltage": {
+                    "allOf": [
+                        {
+                            "$ref": "tchmi:general#/definitions/REAL"
+                        },
+                        {
+                            "comment": "V",
+                            "propertyOrder": 2
+                        }
+                    ]
+                }
+            },
+            "type": "object"
+        },
+        "PLC1.ST_TodayTrend": {
+            "properties": {
+                "Hourly": {
+                    "allOf": [
+                        {
+                            "$ref": "#/definitions/PLC1.ARRAY_0..23_OF-REAL"
+                        },
+                        {
+                            "comment": "Y-axis values (kW per hour)",
+                            "propertyOrder": 1
+                        }
+                    ]
+                }
+            },
+            "type": "object"
+        }
+    },
     "DEFLATECOMPRESSIONLEVEL": 5,
     "DIAGNOSTICS_DOMAINS": [],
     "DISABLED_CONFIGURATION_HINTS": [],
@@ -2516,6 +2696,50 @@
             },
             "USEMAPPING": true
         },
+        "PLC1.GVL.g_aKwhMeters": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::GVL::g_aKwhMeters",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "comment": "================================ \r\n   REALTIME DATA (from Node-RED)  \r\n ================================"
+                    },
+                    {
+                        "$ref": "tchmi:server#/definitions/PLC1.ARRAY_1..5_OF-ST_KwhMeterRealtime"
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.GVL.g_aTodayTrend": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::GVL::g_aTodayTrend",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "comment": "================================ \r\n   TODAY TREND (Active Power)     \r\n   24 values for each device      \r\n ================================"
+                    },
+                    {
+                        "$ref": "tchmi:server#/definitions/PLC1.ARRAY_1..5_OF-ST_TodayTrend"
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.GVL.g_aTodayTrendXY": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::GVL::g_aTodayTrendXY",
+            "SCHEMA": {
+                "$ref": "tchmi:server#/definitions/PLC1.ARRAY_0..0_OF-ARRAY_0..23_OF-ST_ChartPoint"
+            },
+            "USEMAPPING": true
+        },
         "RefreshDefinitions": {
             "ACCESS": 3,
             "DOMAIN": "TcHmiSrv",
@@ -3436,6 +3660,9 @@
                 "LocalizeText": 3,
                 "Login": 3,
                 "Logout": 3,
+                "PLC1.GVL.g_aKwhMeters": 3,
+                "PLC1.GVL.g_aTodayTrend": 3,
+                "PLC1.GVL.g_aTodayTrendXY": 3,
                 "SetLocale": 3,
                 "SubscribeEvents": 3,
                 "TcHmiSqliteLogger.Diagnostics": 1,
