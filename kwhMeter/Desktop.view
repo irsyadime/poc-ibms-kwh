@@ -18,6 +18,10 @@
       {
         "name": "Detail 1",
         "content": "Pages/detail/Detail1.content"
+      },
+      {
+        "name": "Detail 2",
+        "content": "Pages/detail/Detail2.content"
       }
     ]
   },

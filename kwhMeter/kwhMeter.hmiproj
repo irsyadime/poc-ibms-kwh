@@ -22,7 +22,7 @@
     <TargetFramework>native1.12-tchmi</TargetFramework>
     <AzureFunctionsVersion>v2</AzureFunctionsVersion>
     <Name>kwhMeter</Name>
-    <HmiCommunicationRouterPort>10100</HmiCommunicationRouterPort>
+    <HmiCommunicationRouterPort>10101</HmiCommunicationRouterPort>
     <HmiCommunicationServerAuthPort>13000</HmiCommunicationServerAuthPort>
     <HmiInitial>1.12.762.46</HmiInitial>
     <HmiRecent>1.12.762.46</HmiRecent>
@@ -137,6 +137,9 @@
       <Visible>false</Visible>
     </Content>
     <Content Include="Pages\detail\Detail1.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Pages\detail\Detail2.content">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Pages\Events.content">
