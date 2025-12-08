@@ -61,6 +61,15 @@
             "startOffset": 1,
             "type": "array"
         },
+        "PLC1.ARRAY_1..5_OF-ST_KwhMonthlyTotal": {
+            "items": {
+                "$ref": "#/definitions/PLC1.ST_KwhMonthlyTotal"
+            },
+            "maxItems": 5,
+            "minItems": 5,
+            "startOffset": 1,
+            "type": "array"
+        },
         "PLC1.ARRAY_1..5_OF-ST_TodayTrend": {
             "items": {
                 "$ref": "#/definitions/PLC1.ST_TodayTrend"
@@ -184,6 +193,44 @@
                         },
                         {
                             "comment": "V",
+                            "propertyOrder": 2
+                        }
+                    ]
+                }
+            },
+            "type": "object"
+        },
+        "PLC1.ST_KwhMonthlyTotal": {
+            "properties": {
+                "LWBP": {
+                    "allOf": [
+                        {
+                            "$ref": "tchmi:general#/definitions/LREAL"
+                        },
+                        {
+                            "comment": "total LWBP for current month",
+                            "propertyOrder": 1
+                        }
+                    ]
+                },
+                "TotalActiveEnergy": {
+                    "allOf": [
+                        {
+                            "$ref": "tchmi:general#/definitions/LREAL"
+                        },
+                        {
+                            "comment": "Total Active Energy (kWh) for current month",
+                            "propertyOrder": 3
+                        }
+                    ]
+                },
+                "WBP": {
+                    "allOf": [
+                        {
+                            "$ref": "tchmi:general#/definitions/LREAL"
+                        },
+                        {
+                            "comment": "total WBP for current month",
                             "propertyOrder": 2
                         }
                     ]
@@ -2713,6 +2760,16 @@
             },
             "USEMAPPING": true
         },
+        "PLC1.GVL.g_aKwhMonthlyTotal": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::GVL::g_aKwhMonthlyTotal",
+            "SCHEMA": {
+                "$ref": "tchmi:server#/definitions/PLC1.ARRAY_1..5_OF-ST_KwhMonthlyTotal"
+            },
+            "USEMAPPING": true
+        },
         "PLC1.GVL.g_aTodayTrend": {
             "ACCESS": 3,
             "DOMAIN": "ADS",
@@ -3661,6 +3718,7 @@
                 "Login": 3,
                 "Logout": 3,
                 "PLC1.GVL.g_aKwhMeters": 3,
+                "PLC1.GVL.g_aKwhMonthlyTotal": 3,
                 "PLC1.GVL.g_aTodayTrend": 3,
                 "PLC1.GVL.g_aTodayTrendXY": 3,
                 "SetLocale": 3,
