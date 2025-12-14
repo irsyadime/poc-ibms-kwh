@@ -70,6 +70,24 @@
             "startOffset": 1,
             "type": "array"
         },
+        "PLC1.ARRAY_1..5_OF-ST_KwhTodayTotal": {
+            "items": {
+                "$ref": "#/definitions/PLC1.ST_KwhTodayTotal"
+            },
+            "maxItems": 5,
+            "minItems": 5,
+            "startOffset": 1,
+            "type": "array"
+        },
+        "PLC1.ARRAY_1..5_OF-ST_KwhYearlyTotal": {
+            "items": {
+                "$ref": "#/definitions/PLC1.ST_KwhYearlyTotal"
+            },
+            "maxItems": 5,
+            "minItems": 5,
+            "startOffset": 1,
+            "type": "array"
+        },
         "PLC1.ARRAY_1..5_OF-ST_TodayTrend": {
             "items": {
                 "$ref": "#/definitions/PLC1.ST_TodayTrend"
@@ -153,6 +171,16 @@
                         }
                     ]
                 },
+                "LWBP": {
+                    "allOf": [
+                        {
+                            "$ref": "tchmi:general#/definitions/LREAL"
+                        },
+                        {
+                            "propertyOrder": 8
+                        }
+                    ]
+                },
                 "Timestamp": {
                     "allOf": [
                         {
@@ -160,7 +188,7 @@
                         },
                         {
                             "comment": "PLC or Node-RED timestamp",
-                            "propertyOrder": 7
+                            "propertyOrder": 9
                         }
                     ]
                 },
@@ -182,7 +210,7 @@
                         },
                         {
                             "comment": "Set TRUE by Node-RED after writing all fields",
-                            "propertyOrder": 8
+                            "propertyOrder": 10
                         }
                     ]
                 },
@@ -196,12 +224,82 @@
                             "propertyOrder": 2
                         }
                     ]
+                },
+                "WBP": {
+                    "allOf": [
+                        {
+                            "$ref": "tchmi:general#/definitions/LREAL"
+                        },
+                        {
+                            "propertyOrder": 7
+                        }
+                    ]
                 }
             },
             "type": "object"
         },
         "PLC1.ST_KwhMonthlyTotal": {
             "properties": {
+                "IKE": {
+                    "allOf": [
+                        {
+                            "$ref": "tchmi:general#/definitions/LREAL"
+                        },
+                        {
+                            "propertyOrder": 9
+                        }
+                    ]
+                },
+                "IKE_Area": {
+                    "allOf": [
+                        {
+                            "$ref": "tchmi:general#/definitions/LREAL"
+                        },
+                        {
+                            "propertyOrder": 8
+                        }
+                    ]
+                },
+                "IKE_Baseline": {
+                    "allOf": [
+                        {
+                            "$ref": "tchmi:general#/definitions/LREAL"
+                        },
+                        {
+                            "propertyOrder": 13
+                        }
+                    ]
+                },
+                "IKE_Baseline_Performance": {
+                    "allOf": [
+                        {
+                            "$ref": "tchmi:general#/definitions/LREAL"
+                        },
+                        {
+                            "propertyOrder": 11
+                        }
+                    ]
+                },
+                "IKE_GBCI": {
+                    "allOf": [
+                        {
+                            "$ref": "tchmi:general#/definitions/LREAL"
+                        },
+                        {
+                            "propertyOrder": 14
+                        }
+                    ]
+                },
+                "IKE_Performance": {
+                    "allOf": [
+                        {
+                            "$ref": "tchmi:general#/definitions/LREAL"
+                        },
+                        {
+                            "propertyOrder": 10
+                        }
+                    ]
+                },
                 "LWBP": {
                     "allOf": [
                         {
@@ -210,6 +308,36 @@
                         {
                             "comment": "total LWBP for current month",
                             "propertyOrder": 1
+                        }
+                    ]
+                },
+                "LWBP_Bill": {
+                    "allOf": [
+                        {
+                            "$ref": "tchmi:general#/definitions/LREAL"
+                        },
+                        {
+                            "propertyOrder": 6
+                        }
+                    ]
+                },
+                "LWBP_Rate": {
+                    "allOf": [
+                        {
+                            "$ref": "tchmi:general#/definitions/LREAL"
+                        },
+                        {
+                            "propertyOrder": 4
+                        }
+                    ]
+                },
+                "Ten_Hour_LWBP": {
+                    "allOf": [
+                        {
+                            "$ref": "tchmi:general#/definitions/LREAL"
+                        },
+                        {
+                            "propertyOrder": 15
                         }
                     ]
                 },
@@ -224,6 +352,16 @@
                         }
                     ]
                 },
+                "TotalMonthlyBill": {
+                    "allOf": [
+                        {
+                            "$ref": "tchmi:general#/definitions/LREAL"
+                        },
+                        {
+                            "propertyOrder": 12
+                        }
+                    ]
+                },
                 "WBP": {
                     "allOf": [
                         {
@@ -232,6 +370,106 @@
                         {
                             "comment": "total WBP for current month",
                             "propertyOrder": 2
+                        }
+                    ]
+                },
+                "WBP_Bill": {
+                    "allOf": [
+                        {
+                            "$ref": "tchmi:general#/definitions/LREAL"
+                        },
+                        {
+                            "propertyOrder": 7
+                        }
+                    ]
+                },
+                "WBP_Rate": {
+                    "allOf": [
+                        {
+                            "$ref": "tchmi:general#/definitions/LREAL"
+                        },
+                        {
+                            "propertyOrder": 5
+                        }
+                    ]
+                }
+            },
+            "type": "object"
+        },
+        "PLC1.ST_KwhTodayTotal": {
+            "properties": {
+                "DailyEnergy": {
+                    "allOf": [
+                        {
+                            "$ref": "tchmi:general#/definitions/LREAL"
+                        },
+                        {
+                            "propertyOrder": 1
+                        }
+                    ]
+                },
+                "IKE_GBCI": {
+                    "allOf": [
+                        {
+                            "$ref": "tchmi:general#/definitions/LREAL"
+                        },
+                        {
+                            "propertyOrder": 2
+                        }
+                    ]
+                },
+                "Ten_Hour_LWBP": {
+                    "allOf": [
+                        {
+                            "$ref": "tchmi:general#/definitions/LREAL"
+                        },
+                        {
+                            "propertyOrder": 3
+                        }
+                    ]
+                }
+            },
+            "type": "object"
+        },
+        "PLC1.ST_KwhYearlyTotal": {
+            "properties": {
+                "IKE_GBCI": {
+                    "allOf": [
+                        {
+                            "$ref": "tchmi:general#/definitions/LREAL"
+                        },
+                        {
+                            "propertyOrder": 2
+                        }
+                    ]
+                },
+                "IKE_Performance": {
+                    "allOf": [
+                        {
+                            "$ref": "tchmi:general#/definitions/LREAL"
+                        },
+                        {
+                            "propertyOrder": 4
+                        }
+                    ]
+                },
+                "Ten_Hour_LWBP": {
+                    "allOf": [
+                        {
+                            "$ref": "tchmi:general#/definitions/LREAL"
+                        },
+                        {
+                            "propertyOrder": 3
+                        }
+                    ]
+                },
+                "YearlyEnergy": {
+                    "allOf": [
+                        {
+                            "$ref": "tchmi:general#/definitions/LREAL"
+                        },
+                        {
+                            "propertyOrder": 1
                         }
                     ]
                 }
@@ -2770,6 +3008,26 @@
             },
             "USEMAPPING": true
         },
+        "PLC1.GVL.g_aKwhTodayTotal": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::GVL::g_aKwhTodayTotal",
+            "SCHEMA": {
+                "$ref": "tchmi:server#/definitions/PLC1.ARRAY_1..5_OF-ST_KwhTodayTotal"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.GVL.g_aKwhYearlyTotal": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::GVL::g_aKwhYearlyTotal",
+            "SCHEMA": {
+                "$ref": "tchmi:server#/definitions/PLC1.ARRAY_1..5_OF-ST_KwhYearlyTotal"
+            },
+            "USEMAPPING": true
+        },
         "PLC1.GVL.g_aTodayTrend": {
             "ACCESS": 3,
             "DOMAIN": "ADS",
@@ -3719,6 +3977,8 @@
                 "Logout": 3,
                 "PLC1.GVL.g_aKwhMeters": 3,
                 "PLC1.GVL.g_aKwhMonthlyTotal": 3,
+                "PLC1.GVL.g_aKwhTodayTotal": 3,
+                "PLC1.GVL.g_aKwhYearlyTotal": 3,
                 "PLC1.GVL.g_aTodayTrend": 3,
                 "PLC1.GVL.g_aTodayTrendXY": 3,
                 "SetLocale": 3,

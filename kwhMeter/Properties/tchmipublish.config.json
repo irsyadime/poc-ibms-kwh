@@ -39,7 +39,7 @@
     "createPublishLog": false,
     "userName": "",
     "encryptedPassword": "",
-    "encryptedTcHmiServerPassword": "wHfd+C4qC8ZbEGDGpiiF8w==",
+    "encryptedTcHmiServerPassword": "jgJfczI+o7wwMD/A5Z0T3A==",
     "tcHmiServerHost": "10.89.3.99",
     "tcHmiServerPort": "1020",
     "uploadTimeout": "60",
