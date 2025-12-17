@@ -3028,33 +3028,6 @@
             },
             "USEMAPPING": true
         },
-        "PLC1.GVL.g_aTodayTrend": {
-            "ACCESS": 3,
-            "DOMAIN": "ADS",
-            "DYNAMIC": true,
-            "MAPPING": "PLC1::GVL::g_aTodayTrend",
-            "SCHEMA": {
-                "allOf": [
-                    {
-                        "comment": "================================ \r\n   TODAY TREND (Active Power)     \r\n   24 values for each device      \r\n ================================"
-                    },
-                    {
-                        "$ref": "tchmi:server#/definitions/PLC1.ARRAY_1..5_OF-ST_TodayTrend"
-                    }
-                ]
-            },
-            "USEMAPPING": true
-        },
-        "PLC1.GVL.g_aTodayTrendXY": {
-            "ACCESS": 3,
-            "DOMAIN": "ADS",
-            "DYNAMIC": true,
-            "MAPPING": "PLC1::GVL::g_aTodayTrendXY",
-            "SCHEMA": {
-                "$ref": "tchmi:server#/definitions/PLC1.ARRAY_0..0_OF-ARRAY_0..23_OF-ST_ChartPoint"
-            },
-            "USEMAPPING": true
-        },
         "RefreshDefinitions": {
             "ACCESS": 3,
             "DOMAIN": "TcHmiSrv",
